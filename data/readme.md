@@ -1,1 +1,1 @@
-# Aqui estaran las carpetas de los usuarios con su personaje json dentro
+# En la carpeta 'data' se almacenarán los archivos JSON de los personajes de cada usuario separados en sus respectivas carpetas
