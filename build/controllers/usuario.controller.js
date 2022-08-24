@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postUsuario = exports.getUsuarios = void 0;
+exports.deleteUsuario = exports.putUsuario = exports.postUsuario = exports.getUsuario = exports.getUsuarios = void 0;
 const usuario_1 = __importDefault(require("../models/usuario"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const getUsuarios = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -20,20 +20,13 @@ const getUsuarios = (_req, res) => __awaiter(void 0, void 0, void 0, function* (
     return res.json({ usuarios });
 });
 exports.getUsuarios = getUsuarios;
+const getUsuario = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
+    //TODO
+});
+exports.getUsuario = getUsuario;
 const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { body } = req;
+    const { nombre, email, password } = req.body;
     try {
-        const existeEmail = yield usuario_1.default.findOne({
-            where: {
-                email: body.email,
-            },
-        });
-        if (existeEmail) {
-            return res
-                .status(400)
-                .json({ msg: "Ya existe una cuenta para el correo " + body.email });
-        }
-        const { nombre, email, password } = body;
         const usuario = new usuario_1.default({ nombre, email, password });
         const salt = bcryptjs_1.default.genSaltSync(10);
         usuario.password = bcryptjs_1.default.hashSync(password, salt);
@@ -45,7 +38,15 @@ const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
     catch (error) {
         console.log(error);
-        return res.status(500).json({ msg: "Hable con el men" });
+        return res.status(500).json({ msg: "Hable con el admin" });
     }
 });
 exports.postUsuario = postUsuario;
+const putUsuario = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
+    //TODO
+});
+exports.putUsuario = putUsuario;
+const deleteUsuario = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
+    //TODO
+});
+exports.deleteUsuario = deleteUsuario;
