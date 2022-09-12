@@ -17,12 +17,12 @@ const usuario_1 = __importDefault(require("../models/usuario"));
 const existeEmail = (email) => __awaiter(void 0, void 0, void 0, function* () {
     const existeCorreo = yield usuario_1.default.findOne({ email });
     if (existeCorreo)
-        throw new Error(`El correo ya esta en uso`);
+        throw new Error(`El correo ya está en uso`);
 });
 exports.existeEmail = existeEmail;
 const existeUsuarioPorId = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const existeUsuario = yield usuario_1.default.findById(id);
     if (!existeUsuario)
-        throw new Error(`El id no existe`);
+        throw new Error(`Ese id no existe`);
 });
 exports.existeUsuarioPorId = existeUsuarioPorId;

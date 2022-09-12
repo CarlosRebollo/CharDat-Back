@@ -17,7 +17,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dbConnection = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (!process.env.DB_CONNECTION) {
-            console.log("No hay cadena de conexion a la BBDD");
+            console.log("No hay cadena de conexión a la BBDD");
         }
         else {
             yield mongoose_1.default.connect(process.env.DB_CONNECTION);

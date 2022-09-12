@@ -38,7 +38,9 @@ const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
     catch (error) {
         console.log(error);
-        return res.status(500).json({ msg: "Hable con el admin" });
+        return res
+            .status(500)
+            .json({ msg: "Póngase en contacto con el administrador" });
     }
 });
 exports.postUsuario = postUsuario;

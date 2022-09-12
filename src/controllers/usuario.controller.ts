@@ -7,14 +7,16 @@ export const getUsuarios = async (_req: Request, res: Response) => {
   return res.json({ usuarios });
 };
 
-export const getUsuario = async (_req: Request, _res: Response) => {
-  //TODO
+export const getUsuario = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const usuarioPorId = await Usuario.findById(id);
+  return res.json({ usuarioPorId });
 };
 
 export const postUsuario = async (req: Request, res: Response) => {
   const { nombre, email, password } = req.body;
   try {
-    const usuario = new Usuario({ nombre, email, password });
+    const usuario = new Usuario({ nombre, email });
 
     const salt = bcryptjs.genSaltSync(10);
     usuario.password = bcryptjs.hashSync(password, salt);
@@ -27,14 +29,40 @@ export const postUsuario = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ msg: "Hable con el admin" });
+    return res
+      .status(500)
+      .json({ msg: "Póngase en contacto con el administrador" });
   }
 };
 
-export const putUsuario = async (_req: Request, _res: Response) => {
-  //TODO
+export const putUsuario = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { nombre, password } = req.body;
+  try {
+    const salt = bcryptjs.genSaltSync(10);
+    const passwordHash = bcryptjs.hashSync(password, salt);
+    console.log(password, passwordHash);
+
+    await Usuario.findByIdAndUpdate(id, {
+      nombre,
+      password: passwordHash,
+    });
+    return res.json({ msg: "Usuario actualizado" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ msg: "Póngase en contacto con el administrador" });
+  }
 };
 
-export const deleteUsuario = async (_req: Request, _res: Response) => {
-  //TODO
+export const deleteUsuario = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    await Usuario.findByIdAndUpdate(id, { estado: false });
+    return res.json({ msg: "Usuario eliminado" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ msg: "Póngase en contacto con el administrador" });
+  }
 };
