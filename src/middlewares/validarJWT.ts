@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import Usuario from "../models/usuario";
 import { Request, Response, NextFunction } from "express";
 
-const validarJWT = async (
+export const validarJWT = async (
   request: Request,
   response: Response,
   next: NextFunction
@@ -42,11 +42,11 @@ const validarJWT = async (
     // * Guardar el usuario en la request
     // * para poder utilizarlo en el controlador o los siguientes middlewares
     //TODO Añadir propiedad custom en el request -> Pestaña del Chrome
-    request.usuario = usuario;
+    request.body = usuario;
   } catch (error) {
     console.log(error);
     return response.status(401).json({
-      msg: "Error TOKEN no valido",
+      msg: "Error TOKEN no válido",
     });
   }
 

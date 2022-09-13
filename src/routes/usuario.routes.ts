@@ -35,9 +35,19 @@ routerUsuario.post(
   ],
   postUsuario
 );
+routerUsuario.post(
+  "/login",
+  [
+    check("email", "El correo no es valido").isEmail(),
+    check("email").custom(existeEmail),
+    //TODO Hashear la contraseña y comprobar si coinciden
+    validarCampos,
+  ],
+  postUsuario
+);
 routerUsuario.put(
   "/:id",
-  check("id", "No es un ID valido").isMongoId(),
+  check("id", "No es un ID válido").isMongoId(),
   check("id").custom(existeUsuarioPorId),
   check("nombre", "El nombre es obligatorio").notEmpty(),
   check("password", "La contraseña debe ser más de 6 caracteres").isLength({
@@ -55,5 +65,3 @@ routerUsuario.delete(
 );
 
 export default routerUsuario;
-
-// localhost/api/usuarios
