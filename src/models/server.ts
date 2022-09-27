@@ -1,6 +1,8 @@
 import express, { Application } from "express";
+import fileUpload from "express-fileupload";
 import cors from "cors";
 import routerUsuario from "../routes/usuario.routes";
+import routerFiles from "../routes/files.routes";
 import { dbConnection } from "../database/config";
 
 export class Server {
@@ -8,6 +10,7 @@ export class Server {
   private port: string;
   private apiPaths = {
     usuarios: "/api/usuarios",
+    ficheros: "/api/files",
   };
 
   constructor() {
@@ -29,10 +32,20 @@ export class Server {
 
     // Lectura y parse body JSON
     this.app.use(express.json());
+
+    // Carga de ficheros
+    this.app.use(
+      fileUpload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+        createParentPath: true,
+      })
+    );
   }
 
   routes() {
     this.app.use(this.apiPaths.usuarios, routerUsuario);
+    this.app.use(this.apiPaths.ficheros, routerFiles);
   }
 
   listen() {

@@ -16,6 +16,7 @@ import { esAdminRole } from "../middlewares/validarRoles";
 const routerUsuario = Router();
 
 routerUsuario.get("/", getUsuarios);
+
 routerUsuario.get(
   "/:id",
   [
@@ -25,6 +26,7 @@ routerUsuario.get(
   ],
   getUsuario
 );
+
 routerUsuario.post(
   "/",
   [
@@ -38,11 +40,13 @@ routerUsuario.post(
   ],
   postUsuario
 );
+
 routerUsuario.post(
   "/login",
   [check("email", "El correo no es valido").isEmail(), validarCampos],
   loginUsuario
 );
+
 routerUsuario.put(
   "/:id",
   [
@@ -56,6 +60,7 @@ routerUsuario.put(
   ],
   putUsuario
 );
+
 routerUsuario.delete(
   "/:id",
   [

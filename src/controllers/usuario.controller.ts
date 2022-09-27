@@ -26,9 +26,12 @@ export const postUsuario = async (req: Request, res: Response) => {
 
     await usuario.save();
 
+    await Usuario.findByIdAndUpdate(usuario.id, {
+      rutaDatos: "../../data/" + usuario.id,
+    });
+
     return res.status(201).json({
       msg: "Usuario creado",
-      usuario,
     });
   } catch (error) {
     console.log(error);
