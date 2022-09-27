@@ -1,6 +1,12 @@
 import jwt from "jsonwebtoken";
-import Usuario from "../models/usuario";
+import Usuario, { IUsuario } from "../models/usuario";
 import { Request, Response, NextFunction } from "express";
+
+declare module "express-serve-static-core" {
+  export interface Request {
+    usuario: IUsuario;
+  }
+}
 
 export const validarJWT = async (
   request: Request,
@@ -41,8 +47,7 @@ export const validarJWT = async (
 
     // * Guardar el usuario en la request
     // * para poder utilizarlo en el controlador o los siguientes middlewares
-    //TODO Añadir propiedad custom en el request -> Pestaña del Chrome
-    request.body = usuario;
+    request.usuario = usuario;
   } catch (error) {
     console.log(error);
     return response.status(401).json({
@@ -50,5 +55,5 @@ export const validarJWT = async (
     });
   }
 
-  next();
+  return next();
 };

@@ -1,9 +1,15 @@
 import { Schema, model, Document } from "mongoose";
 
+export enum RolEnum {
+  user = "User",
+  admin = "Admin",
+}
+
 export interface IUsuario extends Document {
   nombre: string;
   email: string;
   password: string;
+  rol: RolEnum;
   estado: boolean;
   rutaDatos: string;
 }
@@ -21,6 +27,10 @@ export const UsuarioSchema = new Schema({
   password: {
     type: String,
     required: [true, "La contraseña es obligatoria"],
+  },
+  rol: {
+    type: String,
+    enum: [RolEnum.admin, RolEnum.user],
   },
   estado: {
     type: Boolean,
