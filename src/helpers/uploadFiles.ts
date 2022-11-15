@@ -1,24 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-export const subirFichero = (
-  files: any,
-  carpetaUsuario: string,
-  extValidas = ["json"]
-) => {
+export const crearCharactersLocalFile = (body: any, carpetaUsuario: string) => {
   return new Promise((resolve, reject) => {
-    const { fichero } = files;
-    const nombreCortado = fichero.name.split(".");
-    const extension = nombreCortado[nombreCortado.length - 1];
+    const characters = body;
 
-    // Validar extensiones
-    if (!extValidas.includes(extension.toLowerCase())) {
-      return reject(
-        `La extensión: ${extension} no está permitida. La extension/es permitida es/son [${extValidas}]`
-      );
-    }
-
-    const nombreTemp = "characters" + "." + extension;
+    const nombreTemp = "characters.json";
     const carpetaUser = path.join(__dirname, carpetaUsuario);
     const uploadPath = path.join(carpetaUser, nombreTemp);
 
@@ -27,7 +14,7 @@ export const subirFichero = (
       fs.mkdirSync(carpetaUser);
     }
 
-    fichero.mv(uploadPath, (err: any) => {
+    fs.writeFile(uploadPath, JSON.stringify(characters), (err: any) => {
       if (err) {
         return reject(err);
       }

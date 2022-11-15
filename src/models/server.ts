@@ -1,5 +1,4 @@
 import express, { Application } from "express";
-import fileUpload from "express-fileupload";
 import cors from "cors";
 import routerUsuario from "../routes/usuario.routes";
 import routerFiles from "../routes/files.routes";
@@ -32,15 +31,6 @@ export class Server {
 
     // Lectura y parse body JSON
     this.app.use(express.json());
-
-    // Carga de ficheros
-    this.app.use(
-      fileUpload({
-        useTempFiles: true,
-        tempFileDir: "/tmp/",
-        createParentPath: true,
-      })
-    );
   }
 
   routes() {
