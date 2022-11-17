@@ -1,17 +1,24 @@
 import { Request, Response } from "express";
-import Usuario, { RolEnum } from "../models/usuario";
+import Usuario, { IUsuario, RolEnum } from "../models/usuario";
 import bcryptjs from "bcryptjs";
 import { generarJWT } from "../helpers/generarJWT";
+
+declare module "express-serve-static-core" {
+  export interface Request {
+    usuario: IUsuario;
+  }
+}
 
 export const getUsuarios = async (_req: Request, res: Response) => {
   const usuarios = await Usuario.find();
   return res.json({ usuarios });
 };
 
-export const getUsuario = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const usuarioPorId = await Usuario.findById(id);
-  return res.json({ usuarioPorId });
+export const getUsuarioPorJWT = async (req: Request, res: Response) => {
+  const user = await Usuario.findOne({ email: req.usuario.email });
+  const id = user?._id;
+  const nombre = user?.nombre;
+  return res.json({ id, nombre });
 };
 
 export const postUsuario = async (req: Request, res: Response) => {

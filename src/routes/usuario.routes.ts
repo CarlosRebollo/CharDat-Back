@@ -3,10 +3,10 @@ import { check } from "express-validator";
 import {
   getUsuarios,
   postUsuario,
-  getUsuario,
   putUsuario,
   deleteUsuario,
   loginUsuario,
+  getUsuarioPorJWT,
 } from "../controllers/usuario.controller";
 import { existeEmail, existeUsuarioPorId } from "../helpers/validacionesDB";
 import { validarCampos } from "../middlewares/validarCamposBD";
@@ -15,17 +15,9 @@ import { esAdminRole } from "../middlewares/validarRoles";
 
 const routerUsuario = Router();
 
-routerUsuario.get("/", getUsuarios);
+routerUsuario.get("/", [validarJWT], getUsuarioPorJWT);
 
-routerUsuario.get(
-  "/:id",
-  [
-    check("id", "No es un ID valido").isMongoId(),
-    check("id").custom(existeUsuarioPorId),
-    validarCampos,
-  ],
-  getUsuario
-);
+routerUsuario.get("/allUsers", getUsuarios);
 
 routerUsuario.post(
   "/",
