@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "7dd31ec8-ba77-4f00-9b10-1e38e0f9fefc",
+		"name": "REST Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17861437"
+	},
+	"item": [
+		{
+			"name": "POST Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Usuario4\",\r\n    \"email\":\"usuario4@chardat.com\",\r\n    \"password\":\"333333333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njg2ODYwNjIsImV4cCI6MTcwMDI0MzY2Mn0.dr6LO7OefehBSksMAagON-YUoVuQg47aF0LUwG3iI40",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"PruebaModificada4\",\r\n    \"password\": \"adios9876\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/630680cf98f887318cec3a8e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"630680cf98f887318cec3a8e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"usuario3@chardat.com\",\r\n    \"password\": \"333333333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMyZmNlN2U1MzhiMTg4M2IxZmI3NzAiLCJpYXQiOjE2NjQyODY2NTAsImV4cCI6MTY5NTg0NDI1MH0.lnIQM1arkP2WNA2pbNsPyOTjeBzHLxzYCJft6_PYyNQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/6332fda777a6ca1f688105aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"6332fda777a6ca1f688105aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir fichero",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njg1MzgwODUsImV4cCI6MTcwMDA5NTY4NX0.1Hq2g95gvNsZLieygUi2lxsnHAigHGjy5CM-NH-yn_A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n        {\r\n    \"id\": 1,\r\n    \"name\": {\r\n      \"english\": \"Bulbasaur\",\r\n      \"japanese\": \"フシギダネ\",\r\n      \"chinese\": \"妙蛙种子\",\r\n      \"french\": \"Bulbizarre\"\r\n    },\r\n    \"type\": [\r\n      \"Grass\",\r\n      \"Poison\"\r\n    ],\r\n    \"base\": {\r\n      \"HP\": 45,\r\n      \"Attack\": 49,\r\n      \"Defense\": 49,\r\n      \"Sp. Attack\": 65,\r\n      \"Sp. Defense\": 65,\r\n      \"Speed\": 45\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"name\": {\r\n      \"english\": \"TUSMUEROPISAO\",\r\n      \"japanese\": \"フシギダネ\",\r\n      \"chinese\": \"妙蛙种子\",\r\n      \"french\": \"Bulbizarre\"\r\n    },\r\n    \"type\": [\r\n      \"GRASA\",\r\n      \"PISAR\"\r\n    ],\r\n    \"base\": {\r\n      \"HP\": 45,\r\n      \"Attack\": 49,\r\n      \"Defense\": 49,\r\n      \"Sp. Attack\": 65,\r\n      \"Sp. Defense\": 65,\r\n      \"Speed\": 45\r\n    }\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njg1MzgwODUsImV4cCI6MTcwMDA5NTY4NX0.1Hq2g95gvNsZLieygUi2lxsnHAigHGjy5CM-NH-yn_A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Files",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2NjQyOTE3NzMsImV4cCI6MTY5NTg0OTM3M30.U46y5N9qtjBz1TRqkEoM86ziLw4ZHrLDrD7_wYbvGHM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fichero",
+							"type": "file",
+							"src": "/D:/Desktop/pollita.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
