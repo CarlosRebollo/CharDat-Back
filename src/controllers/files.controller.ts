@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { Request, Response } from "express";
-import { crearCharactersLocalFile } from "../helpers/uploadFiles";
+import { crearCharactersLocalFile } from "../helpers/generarFicheroDePersonajes";
 import { IUsuario } from "../models/usuario";
 
 declare module "express-serve-static-core" {
