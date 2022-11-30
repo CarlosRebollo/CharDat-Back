@@ -1,5 +1,5 @@
 import Router from "express";
-import { getCharacters, postCharacters } from "../controllers/files.controller";
+import { getCharacters, postCharacters } from "../controllers/datos.controller";
 import { validarJWT } from "../middlewares/validarJWT";
 
 const routerFiles = Router();

@@ -6,7 +6,6 @@ export enum RolEnum {
 }
 
 export interface IUsuario extends Document {
-  nombre: string;
   email: string;
   password: string;
   rol: RolEnum;
@@ -15,10 +14,6 @@ export interface IUsuario extends Document {
 }
 
 export const UsuarioSchema = new Schema({
-  nombre: {
-    type: String,
-    required: [true, "El nombre es obligatorio"],
-  },
   email: {
     type: String,
     required: [true, "El correo es obligatorio"],

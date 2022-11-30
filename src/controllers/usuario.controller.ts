@@ -17,14 +17,14 @@ export const getUsuarios = async (_req: Request, res: Response) => {
 export const getUsuarioPorJWT = async (req: Request, res: Response) => {
   const user = await Usuario.findOne({ email: req.usuario.email });
   const id = user?._id;
-  const nombre = user?.nombre;
-  return res.json({ id, nombre });
+  const correo = user?.email;
+  return res.json({ id, correo });
 };
 
 export const postUsuario = async (req: Request, res: Response) => {
-  const { nombre, email, password, rol } = req.body;
+  const { email, password, rol } = req.body;
   try {
-    const usuario = new Usuario({ nombre, email });
+    const usuario = new Usuario({ email });
 
     const salt = bcryptjs.genSaltSync(10);
     usuario.password = bcryptjs.hashSync(password, salt);

@@ -1,130 +1,13 @@
 {
 	"info": {
 		"_postman_id": "7dd31ec8-ba77-4f00-9b10-1e38e0f9fefc",
-		"name": "REST Prueba",
+		"name": "CharDat REST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17861437"
 	},
 	"item": [
 		{
-			"name": "POST Usuario",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"Usuario4\",\r\n    \"email\":\"usuario4@chardat.com\",\r\n    \"password\":\"333333333\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Usuarios",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njg2ODYwNjIsImV4cCI6MTcwMDI0MzY2Mn0.dr6LO7OefehBSksMAagON-YUoVuQg47aF0LUwG3iI40",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT Usuario",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"PruebaModificada4\",\r\n    \"password\": \"adios9876\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios/630680cf98f887318cec3a8e",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios",
-						"630680cf98f887318cec3a8e"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"usuario3@chardat.com\",\r\n    \"password\": \"333333333\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete usuario",
+			"name": "BAJA Usuario",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -151,7 +34,67 @@
 			"response": []
 		},
 		{
-			"name": "Subir fichero",
+			"name": "LOGIN Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"usuario5@chardat.com\",\r\n    \"password\": \"333333333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTRO Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"usuario5@chardat.com\",\r\n    \"password\":\"333333333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPLOAD Characters",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -187,13 +130,13 @@
 			"response": []
 		},
 		{
-			"name": "GET Files",
+			"name": "DOWNLOAD Characters",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njg1MzgwODUsImV4cCI6MTcwMDA5NTY4NX0.1Hq2g95gvNsZLieygUi2lxsnHAigHGjy5CM-NH-yn_A",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2Njk1OTY0OTEsImV4cCI6MTcwMTE1NDA5MX0._F43rSeltlOX3YmqF5BM4j_FvzONdWET6IAG-hGiSaQ",
 						"type": "text"
 					}
 				],
@@ -214,28 +157,18 @@
 			"response": []
 		},
 		{
-			"name": "PUT Files",
+			"name": "GET Usuario BY Token",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzMzMTIzZmRkOTUxNjczZGVhZDYzMDEiLCJpYXQiOjE2NjQyOTE3NzMsImV4cCI6MTY5NTg0OTM3M30.U46y5N9qtjBz1TRqkEoM86ziLw4ZHrLDrD7_wYbvGHM",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mzg2YTAzMDFkNWY3MGQzMjIzMDg1NjQiLCJpYXQiOjE2Njk3NjcyNDAsImV4cCI6MTcwMTMyNDg0MH0.3iLB6Nx-I-Lxr0VonBtMLUugMUT9ELUqyY4qb5qmP-o",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "fichero",
-							"type": "file",
-							"src": "/D:/Desktop/pollita.json"
-						}
-					]
-				},
 				"url": {
-					"raw": "http://localhost:3000/api/files/",
+					"raw": "http://localhost:3000/api/usuarios/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -243,7 +176,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"files",
+						"usuarios",
 						""
 					]
 				}

@@ -22,7 +22,6 @@ routerUsuario.get("/allUsers", getUsuarios);
 routerUsuario.post(
   "/",
   [
-    check("nombre", "El nombre es obligatorio").notEmpty(),
     check("password", "La contraseña debe ser más de 6 caracteres").isLength({
       min: 6,
     }),
