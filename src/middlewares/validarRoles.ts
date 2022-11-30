@@ -18,11 +18,11 @@ export const esAdminRole = (
       msg: " Se quiere verificar el role sin validar el token primero ",
     });
   }
-  const { rol, nombre } = request.usuario;
+  const { rol } = request.usuario;
 
   if (rol !== RolEnum.admin) {
     return response.status(401).json({
-      msg: `${nombre} no es administrador - No tiene permisos para realizar esta acción`,
+      msg: `Su usuario no es administrador - No tiene permisos para realizar esta acción`,
     });
   }
 
