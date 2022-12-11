@@ -2,7 +2,7 @@ import Usuario from "../models/usuario";
 
 export const existeEmail = async (email: string) => {
   const existeCorreo = await Usuario.findOne({ email });
-  if (existeCorreo) throw new Error(`El correo ya está en uso`);
+  if (existeCorreo) throw new Error(`Esa dirección de correo ya está en uso`);
 };
 
 export const existeUsuarioPorId = async (id: string) => {

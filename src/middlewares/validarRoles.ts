@@ -15,7 +15,7 @@ export const esAdminRole = (
 ) => {
   if (!request.usuario) {
     return response.status(500).json({
-      msg: " Se quiere verificar el role sin validar el token primero ",
+      msg: "Se quiere verificar el rol sin validar el token primero",
     });
   }
   const { rol } = request.usuario;

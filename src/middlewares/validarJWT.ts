@@ -34,14 +34,14 @@ export const validarJWT = async (
 
     if (!usuario) {
       return response.status(401).json({
-        msg: "Error TOKEN no valido - Usuario undefined",
+        msg: "Error: token no válido - Usuario undefined",
       });
     }
 
     // Verificar si el uid tiene estado true
     if (!usuario.estado) {
       return response.status(401).json({
-        msg: "Error TOKEN no valido - Estado : false",
+        msg: "Error token no válido - Estado : false",
       });
     }
 
@@ -51,7 +51,7 @@ export const validarJWT = async (
   } catch (error) {
     console.log(error);
     return response.status(401).json({
-      msg: "Error TOKEN no válido",
+      msg: "Error: token no válido",
     });
   }
 

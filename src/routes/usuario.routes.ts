@@ -22,10 +22,10 @@ routerUsuario.get("/allUsers", getUsuarios);
 routerUsuario.post(
   "/",
   [
-    check("password", "La contraseña debe ser más de 6 caracteres").isLength({
+    check("password", "La contraseña debe tener más de 6 caracteres").isLength({
       min: 6,
     }),
-    check("email", "El correo no es valido").isEmail(),
+    check("email", "El correo no es válido").isEmail(),
     check("email").custom(existeEmail),
     validarCampos,
   ],
@@ -34,7 +34,7 @@ routerUsuario.post(
 
 routerUsuario.post(
   "/login",
-  [check("email", "El correo no es valido").isEmail(), validarCampos],
+  [check("email", "El correo no es válido").isEmail(), validarCampos],
   loginUsuario
 );
 
@@ -43,8 +43,7 @@ routerUsuario.put(
   [
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeUsuarioPorId),
-    check("nombre", "El nombre es obligatorio").notEmpty(),
-    check("password", "La contraseña debe ser más de 6 caracteres").isLength({
+    check("password", "La contraseña debe tener más de 6 caracteres").isLength({
       min: 6,
     }),
     validarCampos,
@@ -57,7 +56,7 @@ routerUsuario.delete(
   [
     validarJWT,
     esAdminRole,
-    check("id", "No es un ID valido").isMongoId(),
+    check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeUsuarioPorId),
     validarCampos,
   ],
