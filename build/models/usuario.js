@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsuarioSchema = void 0;
+exports.UsuarioSchema = exports.RolEnum = void 0;
 const mongoose_1 = require("mongoose");
+var RolEnum;
+(function (RolEnum) {
+    RolEnum["user"] = "User";
+    RolEnum["admin"] = "Admin";
+})(RolEnum = exports.RolEnum || (exports.RolEnum = {}));
 exports.UsuarioSchema = new mongoose_1.Schema({
-    nombre: {
-        type: String,
-        required: [true, "El nombre es obligatorio"],
-    },
     email: {
         type: String,
         required: [true, "El correo es obligatorio"],
@@ -15,6 +16,10 @@ exports.UsuarioSchema = new mongoose_1.Schema({
     password: {
         type: String,
         required: [true, "La contraseña es obligatoria"],
+    },
+    rol: {
+        type: String,
+        enum: [RolEnum.admin, RolEnum.user],
     },
     estado: {
         type: Boolean,

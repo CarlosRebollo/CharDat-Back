@@ -5,7 +5,7 @@ const express_validator_1 = require("express-validator");
 const validarCampos = (req, res, next) => {
     const errors = (0, express_validator_1.validationResult)(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json(errors);
+        return res.status(400).json({ msg: errors.array()[0].msg });
     }
     return next();
 };

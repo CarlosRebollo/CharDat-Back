@@ -16,11 +16,13 @@ exports.Server = void 0;
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const usuario_routes_1 = __importDefault(require("../routes/usuario.routes"));
+const files_routes_1 = __importDefault(require("../routes/files.routes"));
 const config_1 = require("../database/config");
 class Server {
     constructor() {
         this.apiPaths = {
             usuarios: "/api/usuarios",
+            ficheros: "/api/files",
         };
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || "3000";
@@ -41,10 +43,11 @@ class Server {
     }
     routes() {
         this.app.use(this.apiPaths.usuarios, usuario_routes_1.default);
+        this.app.use(this.apiPaths.ficheros, files_routes_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`Servidor corriendo en el puerto ${this.port}`);
+            console.log(`Servidor ejecutándose en el puerto ${this.port}`);
         });
     }
 }
