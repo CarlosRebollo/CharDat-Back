@@ -18,16 +18,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/usuarios/6332fda777a6ca1f688105aa",
-					"protocol": "http",
+					"raw": "{{path_base}}api/usuarios/63889c2abd0431f736f972a3",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"usuarios",
-						"6332fda777a6ca1f688105aa"
+						"63889c2abd0431f736f972a3"
 					]
 				}
 			},
@@ -40,7 +37,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"usuario5@chardat.com\",\r\n    \"password\": \"333333333\"\r\n}",
+					"raw": "{\r\n    \"email\": \"carlos@.com\",\r\n    \"password\": \"333\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,14 +45,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/usuarios/login",
-					"protocol": "http",
+					"raw": "{{path_base}}api/usuarios/login",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"usuarios",
 						"login"
 					]
@@ -70,7 +64,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"usuario5@chardat.com\",\r\n    \"password\":\"333333333\"\r\n}",
+					"raw": "{\r\n    \"email\":\"carlos@chardat.com\",\r\n    \"password\":\"333333333\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,14 +72,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/usuarios/",
-					"protocol": "http",
+					"raw": "{{path_base}}api/usuarios/",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"usuarios",
 						""
 					]
@@ -114,14 +105,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/files/",
-					"protocol": "http",
+					"raw": "{{path_base}}api/files/",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"files",
 						""
 					]
@@ -141,14 +129,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/files/",
-					"protocol": "http",
+					"raw": "{{path_base}}api/files/",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"files",
 						""
 					]
@@ -163,25 +148,48 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mzg2YTAzMDFkNWY3MGQzMjIzMDg1NjQiLCJpYXQiOjE2Njk3NjcyNDAsImV4cCI6MTcwMTMyNDg0MH0.3iLB6Nx-I-Lxr0VonBtMLUugMUT9ELUqyY4qb5qmP-o",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mzg4OWMyYWJkMDQzMWY3MzZmOTcyYTMiLCJpYXQiOjE2Njk4OTc1MzUsImV4cCI6MTcwMTQ1NTEzNX0.cEvb8S82Segx0cFieD3S9onk04hfy2sXMJ3mBV3fYNQ",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/usuarios/",
-					"protocol": "http",
+					"raw": "{{path_base}}api/usuarios/",
 					"host": [
-						"localhost"
+						"{{path_base}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"usuarios",
 						""
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "path_base",
+			"value": "https://informatica.iesquevedo.es/carlos-chat/"
 		}
 	]
 }
